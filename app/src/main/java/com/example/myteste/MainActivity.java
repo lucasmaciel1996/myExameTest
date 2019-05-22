@@ -1,5 +1,7 @@
 package com.example.myteste;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
          Button btn_faltagrave = (Button) findViewById(R.id.btn_faltagrave);
          Button btn_faltagravissima = (Button) findViewById(R.id.btn_faltagravissima);
          Button btn_reset = (Button) findViewById(R.id.btn_reset);
+
+         final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+
+
+
 
          final TextView txt_score = (TextView)findViewById(R.id.txt_score);
          final TextView txt_result = (TextView)findViewById(R.id.txt_result);
@@ -77,13 +84,26 @@ public class MainActivity extends AppCompatActivity {
         btn_alert.setOnClickListener(new View.OnClickListener(){
           @Override
            public void onClick(View v){
-              txt_result.setText(exame.consulta_result(exame));
-               if(exame.consulta_result(exame).equals("APROVADO"))
-               {
-                   txt_result.setTextColor(getResources().getColor(R.color.colorSucess));
-               }else{
-                   txt_result.setTextColor(getResources().getColor(R.color.colorfaltagravissima));
-               }
+              dialog.setTitle("Atenção");
+              dialog.setIcon(R.drawable.icon_app);
+              dialog.setMessage("Deseja reprovar o aluno?");
+              dialog.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialog, int which) {
+                      txt_result.setText(exame.consulta_result(exame));
+                      if(exame.consulta_result(exame).equals("APROVADO"))
+                      {
+                          txt_result.setText("REPROVADO");
+                          txt_result.setTextColor(getResources().getColor(R.color.colorfaltagravissima));
+                      }else{
+                          txt_result.setTextColor(getResources().getColor(R.color.colorfaltagravissima));
+                      }
+
+                  }
+              })
+                      .setNegativeButton("CANCELAR",null)
+                      .show();
+
             }
         });
 
