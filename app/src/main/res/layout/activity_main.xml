@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,49 +8,116 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txt_score"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pontos:"
-            android:paddingBottom="@android:dimen/app_icon_size"
-            android:textAlignment="center"/>
-        <Button
-            android:id="@+id/btn_soma"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:textAlignment="center"
-            android:paddingBottom="@android:dimen/app_icon_size"
-            />
-        <Button
-            android:id="@+id/btn_diminui"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:textAlignment="center"
-            android:paddingBottom="@android:dimen/app_icon_size"
-            />
+            <TextView
+                android:id="@+id/txt_score"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:text="Pontos:"
+                android:textSize="40dp"
+                android:textColor="@color/colorText"
+                android:textAlignment="center"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="0">
 
-        <Button
-            android:id="@+id/btn_alert"
+            <Button
+                android:id="@+id/btn_faltaleve"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:layout_margin="2dp"
+                android:text="leve"
+                android:paddingLeft="5dp"
+                android:background="@color/colorfaltaleve"
+                android:textAlignment="center"
+                android:paddingBottom="@android:dimen/app_icon_size"
+                />
+            <Button
+                android:id="@+id/btn_faltamedia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:paddingLeft="5dp"
+                android:layout_weight="1"
+                android:text="media"
+                android:background="@color/colorfaltamedia"
+                android:textAlignment="center"
+                android:paddingBottom="@android:dimen/app_icon_size"
+                />
+            <Button
+                android:id="@+id/btn_faltagrave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="grave"
+                android:layout_margin="2dp"
+                android:paddingLeft="5dp"
+                android:background="@color/colorfaltagrave"
+                android:textAlignment="center"
+                android:paddingBottom="@android:dimen/app_icon_size"
+                />
+            <Button
+                android:id="@+id/btn_faltagravissima"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:layout_margin="2dp"
+                android:text="gravissima"
+                android:background="@color/colorfaltagravissima"
+                android:textAlignment="center"
+                android:paddingBottom="@android:dimen/app_icon_size"
+                />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Alert"
-            android:paddingBottom="@android:dimen/app_icon_size"
-            />
-        <TextView
-            android:id="@+id/txt_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Resultado"
-            android:paddingBottom="@android:dimen/app_icon_size"
-            android:textAlignment="center"
-            android:textSize="@android:dimen/app_icon_size"/>
+           android:layout_weight="10"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_alert"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="Alert"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:id="@+id/txt_result"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:text="Resultado:"
+                android:textSize="40dp"
+                android:textColor="@color/colorInfo"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Reniciar"
+                android:textAlignment="center"
+                />
+
+        </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

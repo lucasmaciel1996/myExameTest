@@ -45,6 +45,13 @@ public class Exame {
         this.resultado = resultado;
     }
 
+    public String resetExame(){
+        this.total_ponto=0;
+        this.indetificador="";
+        this.ponto=0;
+        this.resultado= "";
+        return "Reinciado";
+    }
     public int soma_pontos(Exame exame){
         this.total_ponto =this.total_ponto +  exame.getPonto();
         return getTotal_ponto();
